@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"container\">\n    <app-gallery [movies]=\"cartelera\" title=\"Peliculas en Cartelera\"></app-gallery>\n    <app-gallery [movies]=\"moviesPop\" title=\"Peliculas mas populares\"></app-gallery>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" style=\"text-align: center\">\n    <app-gallery [movies]=\"cartelera\"  title=\"Cartelera Fake\"></app-gallery>\n    <br>\n    <app-gallery [movies]=\"moviesPop\" title=\"Mas populares\"></app-gallery>\n</div>\n<br>\n<div style=\"text-align: center\"><footer><h6>Powered by Icarpio &copy;</h6></footer></div>\n");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-primary bg-primary\" style=\"color: aliceblue;\">\n    <a class=\"navbar-brand\">MoviesApp\n        <img src=\"assets/img/icon.png\" width=\"40\" height=\"40\" alt=\"\">\n    </a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\"\n        aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\" >\n        <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item\" routerLinkActive=\"active\">\n                <a class=\"nav-link\" [routerLink]=\"['home']\" >Home</a>\n            </li>\n            <li class=\"nav-item\" routerLinkActive=\"active\">\n                <a class=\"nav-link\" [routerLink]=\"['search']\">Search</a>\n            </li>\n        </ul>\n        <form class=\"form-inline my-2 my-lg-0\" (ngSubmit)=\"searchMovie(searchTxt.value)\">\n            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" #searchTxt>\n            <button class=\"btn btn-success my-2 my-sm-0\" type=\"submit\">Search</button>\n        </form>\n    </div>\n</nav>\n\n<style>\n    a{\n        color: aliceblue;\n    }\n</style>");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-primary bg-primary\" style=\"color: aliceblue;\">\n    <a class=\"navbar-brand\">MoviesApp\n        <img src=\"assets/img/icon.png\" width=\"40\" height=\"40\" alt=\"\">\n    </a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\"\n        aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n\n    <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\" routerLinkActive=\"active\">\n            <a class=\"nav-link\" [routerLink]=\"['home']\">Home</a>\n        </li>\n        <li class=\"nav-item\" routerLinkActive=\"active\">\n            <a class=\"nav-link\" [routerLink]=\"['search']\">Search</a>\n        </li>\n    </ul>\n    <form class=\"form-inline my-2 my-lg-0\" (ngSubmit)=\"searchMovie(searchTxt.value)\">\n        <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" #searchTxt>\n        <button class=\"btn btn-success my-2 my-sm-0\" type=\"submit\">Search</button>\n    </form>\n\n</nav>\n\n<style>\n    a {\n        color: aliceblue;\n    }\n</style>");
 
 /***/ }),
 
@@ -403,6 +403,7 @@ const routes = [
     { path: 'search/:text', component: _components_search_search_component__WEBPACK_IMPORTED_MODULE_3__["SearchComponent"] },
     { path: 'movie/:id/:pag', component: _components_movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_4__["MovieDetailComponent"] },
     { path: 'movie/:id/:pag/:text', component: _components_movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_4__["MovieDetailComponent"] },
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -448,25 +449,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_movies_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/movies.service */ "./src/app/services/movies.service.ts");
-
 
 
 let AppComponent = class AppComponent {
-    constructor(_mvService) {
-        this._mvService = _mvService;
+    constructor() {
         this.title = 'MoviesApp';
     }
-    getMostPopularity() {
-        this._mvService.getMostPopularity().subscribe(data => console.log(data));
-    }
-    searchMovie(text) {
-        this._mvService.searchMovie(text).subscribe(data => console.log(data));
-    }
 };
-AppComponent.ctorParameters = () => [
-    { type: _services_movies_service__WEBPACK_IMPORTED_MODULE_2__["MoviesService"] }
-];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-root',
