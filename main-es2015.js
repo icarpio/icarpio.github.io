@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"movie\" class=\"container main-container animated fadeIn fast\">\n    <h1>{{movie.title}}</h1>\n    <div class=\"row\">\n        <div class=\"col-md-5\">\n            <img [src]=\"movie|noimage:true\" [alt]=\"movie.original_title\" class=\"img-fluid img-thumbnail\">\n        </div>\n        <div class=\"col-md-7\">\n            <h3>Sinopsis</h3>\n            <hr>\n            <p class=\"text-justify\">\n                {{movie.overview}}\n            </p>\n            <p>\n                {{movie.tagline}}\n            </p>\n            <p>Popularidad:\n                <span class=\"badge badge-primary\">\n                    {{movie.popularity|number:'.2-2'}}\n                </span>\n            </p>\n            <p>Votos:\n                <span class=\"badge badge-primary\">\n                    {{movie.vote_average}}\n                </span>\n            </p>\n            <button type=\"button\" [routerLink]=\"['/'+comeBack, search]\"\n            class=\"btn btn-primary\">\n            Volver\n        </button>\n        </div>\n        \n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"movie\" class=\"container main-container animated fadeIn fast\">\n    <h1>{{movie.title}}</h1>\n    <div class=\"row\">\n        <div class=\"col-md-5\">\n            <img [src]=\"movie|noimage\" [alt]=\"movie.original_title\" class=\"img-fluid img-thumbnail\">\n        </div>\n        <div class=\"col-md-7\">\n            <h3>Sinopsis</h3>\n            <hr>\n            <p class=\"text-justify\">\n                {{movie.overview}}\n            </p>\n            <p>\n                {{movie.tagline}}\n            </p>\n            <p>Popularidad:\n                <span class=\"badge badge-primary\">\n                    {{movie.popularity|number:'.2-2'}}\n                </span>\n            </p>\n            <p>Votos:\n                <span class=\"badge badge-primary\">\n                    {{movie.vote_average}}\n                </span>\n            </p>\n            <button type=\"button\" [routerLink]=\"['/'+comeBack, search]\"\n            class=\"btn btn-primary\">\n            Volver\n        </button>\n        </div>\n        \n    </div>\n</div>");
 
 /***/ }),
 
@@ -403,8 +403,8 @@ const routes = [
     { path: 'search/:text', component: _components_search_search_component__WEBPACK_IMPORTED_MODULE_3__["SearchComponent"] },
     { path: 'movie/:id/:pag', component: _components_movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_4__["MovieDetailComponent"] },
     { path: 'movie/:id/:pag/:text', component: _components_movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_4__["MovieDetailComponent"] },
-    { path: '', pathMatch: 'full', redirectTo: 'home' },
-    { path: '**', pathMatch: 'full', redirectTo: 'home' }
+    { path: '**', pathMatch: 'full', redirectTo: '/home' },
+    { path: '', pathMatch: 'full', redirectTo: '/home' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
